@@ -174,7 +174,7 @@ public class ExpressionDeParser implements ExpressionVisitor, ItemsListVisitor {
 
     @Override
     public void visit(EqualsTo equalsTo) {
-        visitOldOracleJoinBinaryExpression(equalsTo, " = ");
+        visitOldOracleJoinBinaryExpression(equalsTo, " " + equalsTo.getStringExpression() + " ");
     }
 
     @Override

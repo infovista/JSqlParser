@@ -311,6 +311,7 @@ TOKEN : /* Operators */
 {
     <OP_GREATERTHANEQUALS: ">" (<WHITESPACE>)* "=">
 |    <OP_MINORTHANEQUALS: "<" (<WHITESPACE>)* "=">
+|    <OP_EQUALSEQUALS: "=" (<WHITESPACE>)* "=">
 |    <OP_NOTEQUALSSTANDARD: "<" (<WHITESPACE>)* ">">
 |    <OP_NOTEQUALSBANG: "!" (<WHITESPACE>)* "=">
 |    <OP_CONCAT: "|" (<WHITESPACE>)* "|">
@@ -2135,6 +2136,7 @@ Expression RegularCondition() #RegularCondition:
     | "=" { result = new EqualsTo(); }
     | token=<OP_GREATERTHANEQUALS> { result = new GreaterThanEquals(token.image); }
     | token=<OP_MINORTHANEQUALS> { result = new MinorThanEquals(token.image); }
+    | token=<OP_EQUALSEQUALS> { result = new EqualsTo(token.image); }
     | token=<OP_NOTEQUALSSTANDARD> { result = new NotEqualsTo(token.image); }
     | token=<OP_NOTEQUALSBANG> { result = new NotEqualsTo(token.image); }
     | "@@" { result = new Matches(); }
@@ -2434,6 +2436,7 @@ Expression BooleanBinaryExpression():
 		    | "=" { result = new EqualsTo(); }
 		    | token=<OP_GREATERTHANEQUALS> { result = new GreaterThanEquals(token.image); }
 		    | token=<OP_MINORTHANEQUALS> { result = new MinorThanEquals(token.image); }
+		    | token=<OP_EQUALSEQUALS> { result = new EqualsTo(token.image); }
 		    | token=<OP_NOTEQUALSSTANDARD> { result = new NotEqualsTo(token.image); }
 		    | token=<OP_NOTEQUALSBANG> { result = new NotEqualsTo(token.image); }
 	    )

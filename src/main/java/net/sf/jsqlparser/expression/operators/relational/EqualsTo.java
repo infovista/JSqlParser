@@ -28,6 +28,10 @@ public class EqualsTo extends ComparisonOperator {
     public EqualsTo() {
         super("=");
     }
+    
+    public EqualsTo(String operator) {
+        super(operator);
+    }
 
     @Override
     public void accept(ExpressionVisitor expressionVisitor) {
