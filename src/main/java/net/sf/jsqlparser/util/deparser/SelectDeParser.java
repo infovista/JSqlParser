@@ -185,6 +185,9 @@ public class SelectDeParser implements SelectVisitor, SelectItemVisitor, FromIte
                 buffer.append(plainSelect.getWait());
             }
         }
+        if (plainSelect.getFormat() != null) {
+            buffer.append(" FORMAT ").append(plainSelect.getFormat());
+        }
         if (plainSelect.isUseBrackets()) {
             buffer.append(")");
         }

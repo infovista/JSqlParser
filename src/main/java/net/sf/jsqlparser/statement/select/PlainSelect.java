@@ -61,6 +61,7 @@ public class PlainSelect extends ASTNodeAccessImpl implements SelectBody {
     private Wait wait;
     private boolean mySqlSqlCalcFoundRows = false;
     private boolean sqlNoCacheFlag = false;
+    private String format;
 
     public boolean isUseBrackets() {
         return useBrackets;
@@ -287,6 +288,14 @@ public class PlainSelect extends ASTNodeAccessImpl implements SelectBody {
     public Wait getWait() {
         return wait;
     }
+    
+    public void setFormat(String format) {
+        this.format = format;
+    }
+    
+    public String getFormat() {
+        return format;
+    }
 
     @Override
     public String toString() {
@@ -383,6 +392,11 @@ public class PlainSelect extends ASTNodeAccessImpl implements SelectBody {
                 sql.append(" WHERE ").append(where);
             }
         }
+        
+        if (format != null) {
+            sql.append(" FORMAT ").append(format);
+        }
+
         if (useBrackets) {
             sql.append(")");
         }
