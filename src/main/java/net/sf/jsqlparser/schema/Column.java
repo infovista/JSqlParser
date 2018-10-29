@@ -28,7 +28,7 @@ import net.sf.jsqlparser.parser.ASTNodeAccessImpl;
 /**
  * A column. It can have the table name it belongs to.
  */
-public class Column extends ASTNodeAccessImpl implements Expression, MultiPartName {
+public final class Column extends ASTNodeAccessImpl implements Expression, MultiPartName {
 
     private Table table;
     private String columnName;
